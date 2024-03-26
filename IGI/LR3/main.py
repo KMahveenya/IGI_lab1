@@ -1,0 +1,7 @@
+import Task1
+import Task2
+import Task3
+import Task4
+import Task5
+
+Task5.task()
