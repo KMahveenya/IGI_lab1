@@ -30,6 +30,7 @@ def task():
             print('Сумма элементов между двумя первыми отрицательными элементами: ', resaults[1])
         else:
             print('В последовательности двух отрицательных элементов')
+        print_seq(list)
         rep = repeat.repeat()
 
 """Функция, которая ищет индекс минимального отрицательного элемента, а также сумму элементов между первыми двумя отрицательными элементами."""
@@ -58,3 +59,7 @@ def seq_func(list):
         print('ValueError')
     except TypeError:
         print('TypeError')
+
+def print_seq(list):
+    for elem in list:
+        print(elem)
