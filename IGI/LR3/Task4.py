@@ -7,8 +7,8 @@
 
 import repeat
 
-"""Функция, выполняющая основное задание."""
 def task():
+    """Функция, выполняющая основное задание."""
     rep = True
     while rep:
         input_string = 'So she was considering in her own mind, as well as she could, for the hot day made her feel very sleepy and stupid, whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.'
@@ -21,8 +21,8 @@ def task():
 
         rep = repeat.repeat()
 
-"""Функция, выполняющая подсчет слов, у которых длина меньше 7 символов."""
 def task_A(word_list):
+    """Функция, выполняющая подсчет слов, у которых длина меньше 7 символов."""
     try:
         count = 0
         for word in word_list:
@@ -34,8 +34,8 @@ def task_A(word_list):
     except TypeError:
         print('TypeError')
 
-"""Функция, выполняющая поиск самого короткого слова, которое заканчивается на 'а'."""
 def task_B(word_list):
+    """Функция, выполняющая поиск самого короткого слова, которое заканчивается на 'а'."""
     try:
         cur_min = ''
         for word in word_list:
@@ -47,8 +47,8 @@ def task_B(word_list):
     except TypeError:
         print('TypeError')
 
-"""Функция, выводящая слова текста в порядке убывания."""
 def task_C(word_list):
+    """Функция, выводящая слова текста в порядке убывания."""
     try:
         word_list = sorted(word_list, key=len, reverse=True)
         print('c)')

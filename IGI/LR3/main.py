@@ -9,3 +9,5 @@ while rep:
         rep = False
     else:
         tasks[task - 1]()
+    rep = repeat.repeat()
+    a = (1,5-1,3) * 2

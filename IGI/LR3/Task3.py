@@ -7,25 +7,25 @@
 
 import repeat
 
-"""Функция, выполняющая основное задание."""
 def task():
+    """Функция, выполняющая основное задание."""
     rep = True
     while rep:
         input_string = input('Введите строку: \n')
         commas_spaces_count(input_string)
         rep = repeat.repeat()
 
-"""Функция-декоратор, которая выводит ответ в консоль."""
 def print_answer(func):
+    """Функция-декоратор, которая выводит ответ в консоль."""
     def wrapper(*args, **kwargs):
         orig = func(*args, **kwargs)
         print('\nКоличество пробелов в строке: ', orig[0])
         print('\nКоличество запятых в строке: ', orig[1])
     return wrapper
 
-"""Функция, выполняющая подсчет пробелов и запятыхЮ после чего возвращает кортеж с посчитанными значениями."""
 @print_answer
 def commas_spaces_count(input_string):
+    """Функция, выполняющая подсчет пробелов и запятыхЮ после чего возвращает кортеж с посчитанными значениями."""
     try:
         spaces = 0
         commas = 0
