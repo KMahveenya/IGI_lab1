@@ -44,21 +44,12 @@ class Task2(TaskClass.Task):
         while rep:
             
             self.get_text()
-            print(self.text)
-            self.find_average_sentence_len()
+            #print(self.text)
+            #self.find_average_sentence_len()
 
-            rep2 = True
-            while rep2:
-                var = input_check.int_check('Select which feature you want to demonstrate:\n1. Main task\n2. Words in input\n3. Count of word starts with vowel\n4. Exit\n', 1, 4)
-                if var == 1:
-                    self.general_task()
-                    self.variant_task()
-                elif var == 2:
-                    print(self.word_list())
-                elif var == 3:
-                    print(self.start_with_vowel())
-                elif var == 4:
-                    rep2 = False
+            self.general_task()
+            self.variant_task()
+            
             rep = repeat.repeat()
             
     def get_text(self):
