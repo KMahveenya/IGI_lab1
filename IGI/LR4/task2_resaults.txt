@@ -1,0 +1,209 @@
+Общее задание
+
+Количество предложений в тексте: 10
+	Из них:
+	Повествовательные: 6
+	Побудительные: 2
+	Вопросительные: 2
+Средняя длина предложения: 65.6
+Средняя длина слова: 4.719424460431655
+Количество смайликов в тексте: 4
+
+Задание варианта
+
+Полученные даты в тексте:
+1234
+2004
+2016
+2019
+Слова, у которых 3-я с конца буква - согласная, а предпоследняя - гласная:
+Excel
+stores
+analyzes
+types
+dates
+Dates
+presented
+numeric
+excel
+Excel
+can
+this
+dates
+This
+method
+for
+limited
+dates
+dates
+then
+becomes
+for
+excel
+Excel
+has
+solved
+this
+problem
+unique
+numeric
+dates
+This
+includes
+can
+numeric
+this
+for
+mac
+Количество слов на гласную букву: 47
+
+Слова с повторяющейся буквой
+Слово: all Порядковый номер: 8
+Слово: worksheet Порядковый номер: 25
+Слово: manually Порядковый номер: 38
+Слово: applicable Порядковый номер: 42
+Слово: installing Порядковый номер: 81
+Слово: will Порядковый номер: 116
+Слово: discuss Порядковый номер: 117
+Слово: will Порядковый номер: 116
+Слово: applicable Порядковый номер: 42
+
+Слова в алфавитном порядке\:n1234
+2004
+2016
+2019
+a
+all
+amount
+analyzes
+and
+and
+applicable
+applicable
+arduous
+are
+are
+article
+becomes
+by
+by
+can
+can
+certain
+consisting
+consists
+consists
+convert
+convert
+convert
+convert
+converting
+data
+data
+data
+data
+data
+date
+date
+dates
+Dates
+dates
+dates
+dates
+dates
+default
+discuss
+easily
+enable
+Excel
+excel
+Excel
+excel
+Excel
+feature
+feature
+for
+for
+for
+form
+form
+has
+If
+in
+in
+in
+in
+in
+in
+in
+In
+includes
+installing
+into
+is
+it
+it
+kind
+limited
+mac
+manually
+method
+methods
+methods
+methods
+Most
+multiple
+numeric
+numeric
+numeric
+of
+of
+of
+of
+of
+of
+of
+of
+of
+online
+present
+presented
+problem
+solved
+stores
+such
+techniques
+text
+text
+text
+text
+text
+the
+the
+the
+the
+the
+then
+These
+this
+This
+this
+This
+this
+to
+to
+types
+unique
+users
+users
+users
+users
+versions
+very
+we
+which
+which
+will
+will
+worksheet
+your

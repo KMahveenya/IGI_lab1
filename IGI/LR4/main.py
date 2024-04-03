@@ -1,4 +1,5 @@
-import task1
+import task1, task2
 
-task = task1.Task1(1)
-task.start_task()
+tasks = [task1.Task1, task2.Task2]
+
+tasks[1](2).start_task()
