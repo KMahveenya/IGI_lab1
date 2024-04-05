@@ -1,5 +1,9 @@
-import task1, task2, task3
+import task1, task2, task3, task4
 
-tasks = [task1.Task1, task2.Task2, task3.Task3]
+tasks = [task1.Task1, task2.Task2, task3.Task3, task4.Task4]
 
-tasks[2](3).start_task()
+def main():
+    tasks[3](4).start_task()
+
+if __name__ == '__main__':
+    main()
