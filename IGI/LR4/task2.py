@@ -8,6 +8,7 @@
 import TaskClass
 import input_check, repeat
 import re
+from zipfile import ZipFile
 
 class Task2(TaskClass.Task):
     
@@ -49,6 +50,8 @@ class Task2(TaskClass.Task):
 
             self.general_task()
             self.variant_task()
+            self.zip_result_file()
+            print(self.find_file_info_in_zip("task2_resaults.txt"))
             
             rep = repeat.repeat()
             
@@ -136,3 +139,13 @@ class Task2(TaskClass.Task):
     def all_words(self):
         """Функция, возвращающая список всех слов в тексте."""
         return re.findall(r'\w+', self.text)
+    
+    def zip_result_file(self):
+        with ZipFile("zipped_result.zip", "w") as zip_file:
+            zip_file.write("task2_resaults.txt")
+            zip_file.write("task2.txt")
+            
+
+    def find_file_info_in_zip(self, file):
+        with ZipFile("zipped_result.zip", "r") as zip_file:
+            return zip_file.getinfo(file)
