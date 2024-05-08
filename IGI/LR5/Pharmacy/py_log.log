@@ -1,0 +1,2 @@
+INFO:root:len of new must be 1
+WARNING:django.request:Not Found: /favicon.ico

@@ -9,7 +9,10 @@ from datetime import datetime
 import statistics, matplotlib.pyplot as plt
 import seaborn as sns, pandas as pd
 
+import logging
+
 def index(request):
+    logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w")
     appid = '53463e2c2ed3172e0488ab9e52e72b44'
     url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=' + appid
     cities = ['Brest', 'Vitebsk', 'Gomel', 'Grodno', 'Minsk', 'Mogilev']
@@ -24,6 +27,7 @@ def index(request):
         }
         res.append(temp1)
     new = New.objects.last()
+    logging.info('len of new must be 1')
     print(res)
     context = {
         'departments': load_medicines(),

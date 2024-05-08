@@ -90,7 +90,7 @@ def profile(request):
     else:
         form = ReviewForm()
     
-    c = calendar.TextCalendar()
+    c = calendar.HTMLCalendar()
     s = c.formatmonth(date.year, date.month)
 
     context = {
