@@ -7,12 +7,14 @@
 {% endblock  %}
 
 {% block content %}
-    <h1>Часто задаваемые вопросы</h1>
-    {% for question in questions %}
-        <div class="vacancy">
-            <p>{{ question.question }}</p>
-            <p>{{ question.answer }}</p>
-            <p>{{ question.date|date:"d/m/Y" }}</p>
-        </div>
-    {% endfor %}
+    <section>
+        <h1>Часто задаваемые вопросы</h1>
+        {% for question in questions %}
+            <article class="vacancy">
+                <p>{{ question.question }}</p>
+                <p>{{ question.answer }}</p>
+                <p>{{ question.date|date:"d/m/Y" }}</p>
+            </article>
+        {% endfor %}
+    </section>
 {% endblock  %}

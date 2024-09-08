@@ -100,3 +100,7 @@ p {
   text-align: center;
   max-width: 1000px;
 }
+
+.verticalmenu {
+  position: absolute;
+}

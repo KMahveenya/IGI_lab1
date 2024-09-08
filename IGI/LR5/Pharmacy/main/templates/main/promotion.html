@@ -7,13 +7,15 @@
 {% endblock  %}
 
 {% block content %}
-    <h1>Акции, промокоды и купоны</h1>
-    {% for promotion in promotions %}
-        <div class="promotion">
-            <p>{{ promotion.title }}</p>
-            <p>{{ promotion.some_info }}</p>
-            <p>Скидка: {{ promotion.discount }}%</p>
-            <p>Дата окончания: {{ promotion.date|date:"d/m/Y" }}</p>
-        </div>
-    {% endfor %}
+    <section>
+        <h1>Акции, промокоды и купоны</h1>
+        {% for promotion in promotions %}
+            <article class="promotion">
+                <p>{{ promotion.title }}</p>
+                <p>{{ promotion.some_info }}</p>
+                <p>Скидка: {{ promotion.discount }}%</p>
+                <p>Дата окончания: {{ promotion.date|date:"d/m/Y" }}</p>
+            </article>
+        {% endfor %}
+    </section>
 {% endblock  %}

@@ -7,7 +7,7 @@
 {% endblock  %}
 
 {% block content %}
-    <div id="registration_container">
+    <section id="registration_container">
         <form action="{% url "users:registration" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
@@ -77,5 +77,5 @@
             </div>
             <button id="enter_button" type="submit">Зарегестрироваться</button>
         </form>
-    </div>
+    </section>
 {% endblock  %}

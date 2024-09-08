@@ -44,32 +44,28 @@
         
         {% for med in meds %}
             <figure class="shop-item">
-                <div class="container2">
-                    <div>
-                        {% if med.med.image %}
-                        <div>
-                            <img src="{{ med.med.image.url }}" alt="photo_error" width="250px">
-                            {% if med.med.discount %}
-                                <span id="discount">Скидка {{ med.med.discount }}%</span>
-                            {% endif %}
-                        </div>
+                <section class="container2">
+                    {% if med.med.image %}
+                        <img src="{{ med.med.image.url }}" alt="photo_error" width="250px">
+                        {% if med.med.discount %}
+                            <span id="discount">Скидка {{ med.med.discount }}%</span>
                         {% endif %}
+                    {% endif %}
+                    <article>
                         <div class="shop-item-hover"></div>
-                        <div>
-                            <p>{{ med.med.name }}</p>
-                            {% if med.med.discount %}
-                                <p>Цена: <s>{{ med.med.price }}</s> BYN / {{ med.med.sell_price }} BYN</p>
-                            {% else %}
-                                <p>Цена: {{ med.med.price }} BYN</p>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div>
+                        <p><b>{{ med.med.name }}</b></p>
+                        {% if med.med.discount %}
+                            <p>Цена: <s>{{ med.med.price }}</s> BYN / {{ med.med.sell_price }} BYN</p>
+                        {% else %}
+                            <p>Цена: {{ med.med.price }} BYN</p>
+                        {% endif %}
+                    </article>
+                    <article>
                         <button>
                             <a class="button" href="/medicines/{{ med.dep_id }}/{{ med.cat_id }}/{{ med.med.id }}/">Подробнее</a>
                         </button>
-                    </div>
-                </div>
+                    </article>
+                </section>
             </figure>
         {% endfor %}
     </div>

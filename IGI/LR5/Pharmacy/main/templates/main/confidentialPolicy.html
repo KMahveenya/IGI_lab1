@@ -6,7 +6,46 @@
 {% endblock  %}
 
 {% block content %}
-    <p>{{ info }}</p>
-    <p>{{ setup }}</p>
-    <p>{{ punchline }}</p>
+    <section>
+        <article>
+            <p>{{ info }}</p>
+            <p>{{ setup }}</p>
+            <p>{{ punchline }}</p><br>
+        </article>
+        <p>Обработка персональных данных в РООФР «ФАРМАБЕЛ»
+
+    
+
+            РООФР «ФАРМАБЕЛ» в соответствии с требованиями Закона Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных» является Оператором и осуществляет обработку персональных данных членов РООФР «ФАРМАБЕЛ» и иных субъектов персональных данных.
+            
+            
+            
+            За содействием в реализации своих прав субъект персональных данных может обратиться к лицу, ответственному за осуществление внутреннего контроля за обработкой персональных данных в РООФР «ФАРМАБЕЛ», направив сообщение на электронный адрес operator.farmabel@pharma.by.</p>
+    </section>
+    <a href={% static "politics_site.pdf" %} download>Политика конфиденциальности</a>
+    <article>
+        <p>Пример таблицы</p>
+        <table style="border: 1px solid black">
+            <thead>
+                <tr>
+                    <th id="number" style="border: 1px solid black">Уровень навыка</th>
+                    <th id="dj" style="border: 1px solid black">Django</th>
+                    <th id="html" style="border: 1px solid black">HTML/CSS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th id="n1" style="border: 1px solid black" headers="number">1</th>
+                    <td style="border: 1px solid black" headers="dj n1">Петр</td>
+                    <td style="border: 1px solid black" headers="html n1">Александр</td>
+                </tr>
+                <tr>
+                    <th id="n2" style="border: 1px solid black" headers="number">2</th>
+                    <td style="border: 1px solid black" colspan="2" headers="dj html n2">Виталий</td>
+                </tr>
+            </tbody>
+        </table>
+        <p> Стихи уж точно не слова<br>С набором рифм и расстановкой точек,<br>Пускай  их целая глава,<br>Стихи лишь то, что сказано меж строчек.</p>
+        <iframe src="https://stihi.ru/" width="600" height="400"></iframe>
+    </article>
 {% endblock  %}

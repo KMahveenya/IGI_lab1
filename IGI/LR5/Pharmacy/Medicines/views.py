@@ -110,6 +110,7 @@ def medicine(request, dep_id, cat_id, med_id):
     context = {
         'departments' : load_medicines(),
         'med': med,
+        'med_id': med_id
         }
     return render(request, "Medicines/medicine.html", context)
 

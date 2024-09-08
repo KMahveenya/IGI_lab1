@@ -1,6 +1,6 @@
 import requests
 from django.shortcuts import render
-from .models import New, Vacancy, Promotion
+from .models import New, Vacancy, Promotion, Partner, CompanyInfo
 from users.models import User
 from Medicines.models import Sales, Medicines
 
@@ -29,17 +29,24 @@ def index(request):
     new = New.objects.last()
     logging.info('len of new must be 1')
     print(res)
+    partners = Partner.objects.all()
     context = {
         'departments': load_medicines(),
         'new': new,
-        'weather': res
+        'weather': res,
+        'partners': partners
         }
     return render(request, 'main/index.html', context)
 
 def about(request):
+
+    info = CompanyInfo.objects.first()
+
     context = {
         'departments': load_medicines(),
+        'info': info
         }
+    
     return render(request, 'main/about.html', context)
 
 def confidentialPolicy(request):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import New, Vacancy, Promotion
+from .models import New, Vacancy, Promotion, Partner, CompanyInfo
 
 @admin.register(New)
 class NewAdmin(admin.ModelAdmin):
@@ -20,3 +20,19 @@ class PromotionAdmin(admin.ModelAdmin):
     list_editable = ['discount']
     search_fields = ['title']
     list_filter = ['title', 'discount', 'date']
+
+@admin.register(Partner)
+class PartnerAdmin(admin.ModelAdmin):
+    list_display_links = None
+    list_display = ['name', 'ref', 'image']
+    list_editable = ['name', 'ref']
+    search_fields = ['name']
+    list_filter = ['name', 'ref']
+
+@admin.register(CompanyInfo)
+class CompanyInfoAdmin(admin.ModelAdmin):
+    list_display_links = None
+    list_display = ['info', 'logo', 'video', 'history', 'props']
+    list_editable = ['info', 'logo', 'video', 'history', 'props']
+    search_fields = ['info', 'logo', 'video', 'history', 'props']
+    list_filter = ['info', 'logo', 'video', 'history', 'props']

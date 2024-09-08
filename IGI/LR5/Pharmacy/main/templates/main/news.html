@@ -7,18 +7,20 @@
 {% endblock  %}
 
 {% block content %}
-    <h1>Новости</h1>
-    {% for new in news %}
-        <div class="new">
-            {% if new.image %}
-                <div>
-                    <img src="{{ new.image.url }}" alt="photo_error">
+    <section>
+        <h1>Новости</h1>
+        {% for new in news %}
+            <article class="new">
+                {% if new.image %}
+                    <div>
+                        <img src="{{ new.image.url }}" alt="photo_error">
+                    </div>
+                {% endif %}
+                <div class="info">
+                    <a href="/news/{{ new.id }}">{{ new.title }}</a>
+                    <p>{{ new.some_info }}</p>
                 </div>
-            {% endif %}
-            <div class="info">
-                <a href="/news/{{ new.id }}">{{ new.title }}</a>
-                <p>{{ new.some_info }}</p>
-            </div>
-        </div>
-    {% endfor %}
+            </article>
+        {% endfor %}
+    </section>
 {% endblock  %}

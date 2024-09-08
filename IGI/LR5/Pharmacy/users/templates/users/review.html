@@ -16,11 +16,11 @@
         {% endif %}
     </div>
     {% for review in reviews %}
-        <div class="vacancy">
+        <article class="vacancy">
             <p>{{ review.user.username }}</p>
             <p>{{ review.review }}</p>
             <p>{{ review.grade }} баллов</p>
             <p>{{ review.date|date:"d/m/Y" }}</p>
-        </div>
+        </article>
     {% endfor %}
 {% endblock  %}

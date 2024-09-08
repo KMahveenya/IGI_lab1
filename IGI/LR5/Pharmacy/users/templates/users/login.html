@@ -7,7 +7,7 @@
 {% endblock  %}
 
 {% block content %}
-    <div id="login_container">
+    <section id="login_container">
         <form method="post">
             {% csrf_token %}
 
@@ -22,5 +22,5 @@
             <button id="enter_button" type="submit">Войти</button>
         </form>
         <a id="reg" href="{% url "users:registration" %}">Создать аккаунт</a>
-    </div>
+    </section>
 {% endblock  %}
