@@ -1,0 +1,55 @@
+#login_container {
+    width: 500px;
+    margin: auto;
+    padding: auto;
+    padding-top: 300px;
+}
+
+#name label{
+    display: block;
+    font-size: 20px;
+}
+
+#name input{
+    margin: 10px;
+    margin-left: 0;
+    font-size: 20px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+#password label{
+    display: block;
+    font-size: 20px;
+}
+
+#password input{
+    margin: 10px;
+    margin-left: 0;
+    font-size: 20px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+#enter_button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;   
+    padding: 10px; 
+    padding-left: 40px;
+    padding-right: 40px;
+    display: block;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 30px;
+    background-color: rgb(155, 168, 155);
+    border: 0;
+}
+
+#enter_button:hover {
+    background-color: rgb(178, 196, 178);
+}
+
+#reg {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}

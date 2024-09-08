@@ -1,0 +1,8 @@
+#search_container input {
+    display: inline-block;
+    min-width: 900px;
+    padding: 10px;
+    margin: 15px;
+    font-size: 25px;
+    border-radius: 20px;
+}

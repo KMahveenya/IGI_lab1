@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/vacancy.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <h1>Продажи</h1>
+        {% for sale in sales %}
+            <article class="vacancy">
+                <p>Товар: {{ sale.name }}</p>
+                <p>Количество продаж: {{ sale.quantity }}</p>
+                <p>Доход: {{ sale.income }} BYN</p>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock  %}

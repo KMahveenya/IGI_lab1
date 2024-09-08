@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section id="login_container">
+        <form method="post">
+            {% csrf_token %}
+
+            <div id="name">
+                <label for="id_username">Имя пользователя</label>
+                <input type="text" name="username" id="id_username" placeholder="Введите имя пользователя" value="{% if form.username.value %}{{ form.username.value }}{% endif %}"></input>
+            </div>
+            <div id="password">
+                <label for="id_password">Пароль</label>
+                <input type="password" name="password" id="id_password" placeholder="Введите пароль"></input>
+            </div>
+            <button id="enter_button" type="submit">Войти</button>
+        </form>
+        <a id="reg" href="{% url "users:registration" %}">Создать аккаунт</a>
+    </section>
+{% endblock  %}

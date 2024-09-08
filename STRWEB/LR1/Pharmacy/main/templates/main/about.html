@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <article>
+        <p>{{ info.info }}</p><br>
+        <p>{{ info.props }}</p><br>
+        <p>{{ info.history }}</p><br>
+        <div>
+            <img src="{{ info.logo.url }}" alt="photo_error">
+        </div>
+        <div>
+            <img src="{{ info.certificate.url }}" alt="photo_error">
+        </div>
+        <video width="320" height="240" controls itemscope itemtype="https://schema.org/VideoObject" itemprop="video">
+            <source src="{{ info.video.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <audio itemscope itemtype="https://schema.org/AudioObject" itemprop="audio" controls src="/media/main_audios/audio.mp3"></audio>
+    <article>
+{% endblock  %}

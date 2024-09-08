@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <p>Количество рарегестрированных пользователей: {{ users_count }}</p>
+        <p>Суммарный доход: {{ income }}</p>
+        <p>Самый популярный товар: {{ popular_med }}</p>
+        <p>Самый прибыльный товар: {{ most_income_med }}</p>
+        <p>Среднее арифметическое продаж: {{ sales_average }}</p>
+        <p>Мода продаж: {{ sales_mode }}</p>
+        <p>Медиана продаж: {{ sales_median }}</p>
+        <p>Дисперсия продаж: {{ sales_variance }}</p>
+        <p>СКО продаж: {{ sales_stdev }}</p>
+        <p>Соотношение количества продаваемых продуктов</p>
+        <img src="{% static "images/graph.png" %}" alt="Error">
+        <p>Стоимость продуктов за одну единицу</p>
+        <img src="{% static "images/graph2.png" %}" alt="Error">
+    </section>
+{% endblock  %}

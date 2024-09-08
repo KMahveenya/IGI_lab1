@@ -1,0 +1,62 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/new.css" %}">
+    <link rel="stylesheet" href="{% static "css/weather.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <article>
+            <div id="img">
+                <img src="{{ 'media/main_images/logo.jpg' }}" alt="photo_error">
+            </div>
+
+            <figure id="img">
+                <img src="{{ 'media/main_images/ban1.jpg' }}" alt="photo_error">
+            </figure>
+
+            <div id="weather">
+                {% for itm in weather %}
+                    <div class="one_elem">
+                        <figure>
+                            <img src="http://openweathermap.org/img/wn/{{ itm.icon }}@2x.png" alt="фото">
+                        </figure>
+                        <div>
+                            <p>{{ itm.city }}</p>
+                            <p>{{ itm.temp }} <sup>0</sup>C</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </article>
+        <blockquote cite="https://www.forbes.ru/forbeslife/dosug/262327-na-vse-vremena-100-vdokhnovlyayushchikh-tsitat">
+            <p>Надо любить жизнь больше, чем смысл жизни. - Федор Достоевский</p>
+        </blockquote>
+        <article>
+            <h1>Последняя опубликованная новость</h1>
+            <h1>{{ new.title }}</h1>
+            <div class="new">
+                {% if new.image %}
+                    <figure id="img">
+                        <img src="{{ new.image.url }}" alt="photo_error">
+                    </figure>
+                {% endif %}
+                <div class="info">
+                    <p>{{ new.text }}</p>
+                </div>
+            </div>
+        </article>
+        <article>
+            <h1>Наши партнеры</h1>
+            {% for itm in partners%}
+                <figure id="img">
+                    <img src="{{ itm.image.url }}" alt="photo_error">
+                </figure>
+                <a href="{{ itm.ref }}">{{ itm.name }}</a>
+            {% endfor %}
+        </article>  
+    </section>
+{% endblock  %}

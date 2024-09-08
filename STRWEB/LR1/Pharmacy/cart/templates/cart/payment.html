@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/new.css" %}">
+    <link rel="stylesheet" href="{% static "css/weather.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <p>Итого: {{ total }} BYN</p>
+        <button><a href="#">Оплатить</a></button>
+    </section>
+{% endblock  %}

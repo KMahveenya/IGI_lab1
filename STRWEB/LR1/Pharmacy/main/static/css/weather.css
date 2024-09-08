@@ -1,0 +1,23 @@
+#weather img {
+    width: 100px;
+}
+
+#weather {
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.one_elem {
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 30%;
+}
+
+#weather p {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+}

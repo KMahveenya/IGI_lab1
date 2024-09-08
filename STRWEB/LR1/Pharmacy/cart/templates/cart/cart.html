@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/new.css" %}">
+    <link rel="stylesheet" href="{% static "css/weather.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <article>
+        {% for med in meds %}
+            <p>{{ med.med.name }} - {{ med.quantity }}</p>
+            <button><a href="{% url "cart:cart_edit" med.id 1 %}">+</a></button>
+            <button><a href="{% url "cart:cart_edit" med.id 2 %}">-</a></button>
+            <button><a href="{% url "cart:cart_delete" med.id %}">Удалить</a></button>
+        {% endfor %}
+    </article>
+    <button><a href="{% url "cart:cart_payment" %}">К оплате</a></button>
+{% endblock  %}

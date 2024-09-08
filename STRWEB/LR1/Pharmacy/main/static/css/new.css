@@ -1,0 +1,22 @@
+h1 {
+    margin: 0;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    padding: 20px;
+    margin: auto;
+    width: 500px;
+    border-radius: 100px;
+}
+
+.info p {
+    padding: 20px;
+    white-space: pre-line;
+    text-align: justify;
+    font-size: larger;
+    font-weight: 400;
+}
