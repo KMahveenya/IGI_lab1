@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/vacancy.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name" value="{{provider.name}}" />
+        </p>
+        <p>
+            <label>Введите закупочную цену</label><br>
+            <input type="number" name="price" value="{{provider.price}}" />
+        </p>
+        <select name="medicine" size="1">
+            {% for med in meds %}
+                <option value={{ med.id }} {% if med.id == provider.medicine.id %}selected{% endif %}>{{ med.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Сохранить" >
+    </form>
+{% endblock  %}

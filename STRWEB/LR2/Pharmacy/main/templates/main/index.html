@@ -1,0 +1,81 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/new.css" %}">
+    <link rel="stylesheet" href="{% static "css/weather.css" %}">
+    <link rel="stylesheet" href="{% static "css/mainPage.css" %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <article>
+            <h1 id="name">Белфармация</h1>
+            <div id="img">
+                <img src="{{ 'media/main_images/logo.jpg' }}" alt="photo_error">
+            </div>
+
+            <figure id="img">
+                <img src="{{ 'media/main_images/ban1.jpg' }}" alt="photo_error">
+            </figure>
+
+            <div id="weather">
+                {% for itm in weather %}
+                    <div class="one_elem">
+                        <figure>
+                            <img src="http://openweathermap.org/img/wn/{{ itm.icon }}@2x.png" alt="фото">
+                        </figure>
+                        <div>
+                            <p>{{ itm.city }}</p>
+                            <p>{{ itm.temp }} <sup>0</sup>C</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </article>
+        <blockquote cite="https://www.forbes.ru/forbeslife/dosug/262327-na-vse-vremena-100-vdokhnovlyayushchikh-tsitat">
+            <p>Надо любить жизнь больше, чем смысл жизни. - Федор Достоевский</p>
+        </blockquote>
+        <article>
+            <h1>Последняя опубликованная новость</h1>
+            <h1>{{ new.title }}</h1>
+            <div class="new">
+                {% if new.image %}
+                    <figure id="img">
+                        <img src="{{ new.image.url }}" alt="photo_error">
+                    </figure>
+                {% endif %}
+                <div class="info">
+                    <p>{{ new.text }}</p>
+                </div>
+            </div>
+        </article>
+        <article>
+            <h1>Наши партнеры</h1>
+            <div>
+                {% for itm in partners%}
+                    <div class="partner">
+                        <figure id="img">
+                            <img src="{{ itm.image.url }}" alt="photo_error">
+                        </figure>
+                        <a href="{{ itm.ref }}">{{ itm.name }}</a>
+                    <div>
+                {% endfor %}
+            </div>
+        </article>
+        <article id="scene">
+            <img id="gorb" src="media/main_images/gorb.png" alt="image">
+            <img id="nogorb" src="media/main_images/nogorb.png" alt="image">
+            <img id="open" src="media/main_images/doctor_open.png" alt="image">
+            <img id="close" src="media/main_images/doctor_close.png" alt="image">
+            <img id="pill" src="media/main_images/pill.webp" alt="image">
+            <img id="desk" src="media/main_images/desk.png" alt="image">
+            <h1>Белфармация</h1>
+        </article>
+    </section>
+{% endblock  %}

@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/promotion.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <h1>Акции, промокоды и купоны</h1>
+            {% for promotion in promotions %}
+                <ul class="promotion">
+                    <li><p>{{ promotion.title }}</p></li> 
+                    <li><p>{{ promotion.some_info }}</p></li>
+                    <li><p>Скидка: {{ promotion.discount }}%</p></li>
+                    <li><p>Дата окончания: {{ promotion.date|date:"d/m/Y" }}</p></li>
+                </ul>
+            {% endfor %}
+    </section>
+{% endblock  %}

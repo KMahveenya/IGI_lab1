@@ -1,0 +1,19 @@
+.question p:first-child {
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.question p:nth-child(2) {
+    margin: 20px;
+    font-size: 20px;
+    text-align: center;
+    text-align: justify;
+}
+
+.question p:last-child {
+    margin: 20px;
+    font-size: 15px;
+    text-align: end;
+}

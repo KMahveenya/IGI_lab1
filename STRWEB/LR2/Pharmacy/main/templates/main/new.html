@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/new.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <article>
+        <h1>{{ new.title }}</h1>
+        <div class="new">
+            {% if new.image %}
+                <div id="img">
+                    <img src="{{ new.image.url }}" alt="photo_error">
+                </div>
+            {% endif %}
+            <div class="info">
+                <p>{{ new.text }}</p>
+            </div>
+        </div>
+    </article>
+{% endblock  %}

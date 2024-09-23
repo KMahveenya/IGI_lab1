@@ -1,0 +1,118 @@
+#logo {
+    transform: rotate(0.5turn);
+}
+
+#sertificate {
+    border: 30px solid transparent;
+    border-image: -webkit-image-set(url(/media/main_images/border.png)) 28 round;
+    display: inline-block;
+    width: 600px;
+}
+
+#sertificate > div > div{
+    background: -webkit-linear-gradient(130deg, rgba(255, 255, 255, 0.9), rgba(255, 236, 209, 0.9), rgba(255, 255, 255, 0.9));
+}
+
+#sertificate > div {
+    background-image: url(/media/main_images/fon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sertificate p:first-child {
+    color: rgb(26, 113, 212);
+    font-weight: 900;
+    text-align: center;
+    padding: 20px;
+}
+
+#sertificate p:nth-child(2) {
+    color: rgb(167, 10, 230);
+    font-weight: 900;
+    text-align: center;
+    padding: 30px;
+    font-size: 80px;
+}
+
+#sertificate p:nth-child(3) {
+    color: rgb(73, 28, 238);
+    font-weight: 900;
+    text-align: center;
+    font-size: 30px;
+}
+
+#sertificate p:nth-child(4) {
+    color: rgb(178, 28, 238);
+    font-weight: 900;
+    text-align: center;
+    font-size: 30px;
+}
+
+#sertificate p:nth-child(5) {
+    color: rgb(58, 45, 240);
+    font-weight: 900;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 20px;
+}
+
+#sertificate p:nth-child(6) {
+    color: rgb(58, 45, 240);
+    font-weight: 900;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+#sertificate p:nth-child(7) {
+    color: rgb(178, 28, 238);
+    font-weight: 900;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+#sertificate p:nth-child(8), #sertificate p:nth-child(9), #sertificate p:nth-child(10) {
+    color: rgb(34, 0, 226);
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 60px;
+}
+
+#sertificate p:nth-child(11) {
+    color: rgb(34, 0, 226);
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+#sertificate p:last-child {
+    color: rgb(58, 45, 240);
+    font-weight: 900;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 20px;
+    padding-bottom: 50px;
+}
+
+#props {
+    font-family: "Sofadi One", Courier, sans-serif;
+}
+
+#preloader {
+    margin: 50px;
+    display: block;
+    width: 100px;
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(1turn)
+    }
+}

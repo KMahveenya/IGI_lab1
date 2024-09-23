@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/staff.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <h1>Персонал</h1>
+        {% for person in staff %}
+            <article class="person">
+                {% if person.image %}
+                    <div>
+                        <img src="{{ person.image.url }}" alt="photo_error">
+                    </div>
+                {% else %}
+                    <div id="circle-img">
+                        <img src="{% static "images/noAvatar.jpg" %}" alt="photo_error">
+                    </div>
+                {% endif %}
+                <div class="info">
+                    <p>ФИО: {{ person.last_name }} {{ person.first_name }} {{ person.surname }}</p>
+                    <p>Должность: {{ person.position }}</p>
+                    <p>Работает с: {{ person.date_joined|date:"d/m/Y" }}</p>
+                    <p>Почта: {{ person.email }}</p>
+                    <p>Номер телефона: {{ person.phone }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock  %}
