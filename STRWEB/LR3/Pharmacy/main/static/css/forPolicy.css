@@ -1,0 +1,211 @@
+/*демонстрация селекторов по атрибутам*/
+[headers~="html"] {
+    background-color: rgb(92, 109, 109);
+}
+
+[attr^="start"] {
+    color: rgb(76, 206, 104);
+}
+
+[attr$="end"] {
+    color: rgb(11, 8, 180);
+}
+
+[attr*="contains"] {
+    color: rgb(231, 70, 159);
+}
+
+/*демонстрация селекторов потомков, дочерних элементов*/
+#list_for_test p {
+    font-size: 25px;
+}
+
+#list_for_test > ul > li {
+    color: brown;
+}
+
+.first + li {
+    font-size: 10px;
+}
+
+.first ~ li {
+    background-color: bisque;
+}
+
+/*состояния ссылок и input:focus*/
+a:link {
+    color: blueviolet;
+}
+
+a:visited {
+    color: aqua;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+input:focus {
+    border-color: blue;
+    outline: none;
+}
+
+/*демонстрация выбора элемента в зависимости от положения*/
+#list_for_test > ul > ul:first-of-type li:first-child{
+    text-decoration: underline;
+}
+
+#list_for_test > ul > ul:last-of-type > ul li:last-child{
+    text-decoration: underline;
+}
+
+#list_for_test > ul > ul:last-of-type > ul li:nth-child(2n+1){
+    text-decoration: line-through;
+}
+
+th:first-of-type {
+    font-style: italic;
+}
+
+/*демонстрация стилей для элементов формы*/
+input:required + span {
+    background-color: azure;
+}
+
+input:enabled {
+    background-color: blanchedalmond;
+}
+
+input:disabled {
+    background-color: chocolate;
+}
+
+input:in-range {
+    color: green;
+}
+
+input:out-of-range {
+    color: red;
+}
+
+input:checked + span {
+    background-color: green;
+}
+
+/*демонстрация кавычек в зависимости от языка*/
+q:lang(de) {
+    quotes: "\201E" "\201C";
+}
+
+q:lang(en) {
+    quotes: "\201C" "\201D";
+}
+
+q:lang(fr), q:lang(ru) {
+    quotes: "\00AB" "\00BB";
+}
+
+/*демонстрация псевдоэлементов*/
+#policy::first-line {
+    background-color: aquamarine;
+}
+
+#list_for_test + p::before
+{
+    content: "Цитаты ";
+}
+
+#list_for_test + p::after
+{
+    content: " языках:";
+}
+
+#list_for_test > ul > ul:last-child ul li {
+    list-style: none;
+}
+
+#list_for_test > ul > ul:last-child ul li::before {
+    content: "\2726";
+}
+
+*::selection {
+    background-color: tomato;
+}
+
+/*подключение шрифта из службы шрифтов*/
+q {
+    font-family: "Sofadi One", Courier, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*демонтрация media*/
+@media (max-height: 700px) {
+    #for_media p:first-child::before {
+        content: "This text displayed when height of screen less then 700px";
+    }
+}
+
+@media (min-height: 700px) {
+    #for_media p:first-child::before {
+        content: "This text displayed when height of screen more then 700px";
+    }
+}
+
+@media (max-width: 700px) {
+    #for_media p:last-child::before {
+        content: "This text displayed when width of screen less then 700px";
+    }
+}
+
+@media (min-width: 700px) {
+    #for_media p:last-child::before {
+        content: "This text displayed when width of screen more then 700px";
+    }
+}
+
+/*курсор на кнопках*/
+input[type="submit"]:hover, input[type="reset"]:hover, button {
+    cursor: pointer;
+}
+
+/*демонстрация форматированного текста*/
+#text_decoration {
+    border: 1px black solid;
+}
+#text_decoration p {
+    display: block;
+    border: 1px gray solid;
+    margin: 10px;
+    padding: 10px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 30px;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Sofadi One", Courier, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    font-variant: small-caps;
+}
+
+/*Демонстрация настройки таблицы*/
+table {
+    border-spacing: 0;
+    empty-cells: show;
+    caption-side: top;
+    text-align: center;
+    vertical-align: middle;
+    table-layout: auto;
+}
+
+td:empty{
+    background-color: gray;
+}

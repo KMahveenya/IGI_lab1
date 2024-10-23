@@ -1,0 +1,22 @@
+#filter {
+    position: absolute;
+    width: 270px;
+    left: -270px;
+    background-color: rgb(219, 213, 203);
+    padding: 15px;
+    border-radius: 0 0 0 25px;
+}
+
+#filter p {
+    padding: 10px;
+}
+
+#filter_button button {
+    background-color: rgb(51, 133, 187);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#filter_button {
+    text-align: center;
+}

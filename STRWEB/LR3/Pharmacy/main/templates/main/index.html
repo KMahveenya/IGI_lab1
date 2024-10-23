@@ -1,0 +1,129 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/new.css" %}">
+    <link rel="stylesheet" href="{% static "css/weather.css" %}">
+    <link rel="stylesheet" href="{% static "css/mainPage.css" %}">
+    <link rel="stylesheet" href="{% static "css/slider.css" %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <article>
+            <h1 id="name">Белфармация</h1>
+            <div id="img">
+                <img src="{{ 'media/main_images/logo.jpg' }}" alt="photo_error">
+            </div>
+
+            <div id="countdown">Загрузка таймера...</div>
+
+            <div class="slider">
+                <div class="slider-wrapper">
+                    <div class="slide"><a href="{% url "main:news" %}"><span class="counter"></span><img src="{{ 'media/main_images/ban1.jpg' }}" alt="Image 1"><span class="image-text">Text for ban1</span></a></div>
+                    <div class="slide"><a href="{% url "main:about" %}"><span class="counter"></span><img src="{{ 'media/main_images/ban2.jpg' }}" alt="Image 2"><span class="image-text">Text for ban2</span></a></div>
+                    <div class="slide"><a href="{% url "main:vacancies" %}"><span class="counter"></span><img src="{{ 'media/main_images/ban3.jpg' }}" alt="Image 3"><span class="image-text">Text for ban3</span></a></div>
+                </div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="pag">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            {% if user.is_superuser %}
+                <form id="sliderSettings">
+                <h2>Настройки слайдера</h2>
+            
+                <label>
+                  <input type="checkbox" id="allowCycle" checked> Разрешить цикличность прокрутки
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="showArrows" checked> Показать стрелки
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="showPagination" checked> Показать пагинатор
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="allowAutoScroll" checked> Разрешить автопрокрутку
+                </label><br>
+            
+                <label>
+                  <input type="checkbox" id="allowHoverPause" checked> Останавливать прокрутку при наведении курсора
+                </label><br>
+            
+                <label for="autoScrollTime">Время автопрокрутки (в секундах):</label>
+                <input type="number" id="autoScrollTime" value="5" min="1"><br>
+            
+                <button type="button" id="applySettings">Применить</button>
+              </form>
+            {% endif %}
+
+            <div id="weather">
+                {% for itm in weather %}
+                    <div class="one_elem">
+                        <figure>
+                            <img src="http://openweathermap.org/img/wn/{{ itm.icon }}@2x.png" alt="фото">
+                        </figure>
+                        <div>
+                            <p>{{ itm.city }}</p>
+                            <p>{{ itm.temp }} <sup>0</sup>C</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </article>
+        <blockquote cite="https://www.forbes.ru/forbeslife/dosug/262327-na-vse-vremena-100-vdokhnovlyayushchikh-tsitat">
+            <p>Надо любить жизнь больше, чем смысл жизни. - Федор Достоевский</p>
+        </blockquote>
+        <article>
+            <h1>Последняя опубликованная новость</h1>
+            <h1>{{ new.title }}</h1>
+            <div class="new">
+                {% if new.image %}
+                    <figure id="img">
+                        <img src="{{ new.image.url }}" alt="photo_error">
+                    </figure>
+                {% endif %}
+                <div class="info">
+                    <p>{{ new.text }}</p>
+                </div>
+            </div>
+        </article>
+        <article>
+            <h1>Наши партнеры</h1>
+            <div>
+                {% for itm in partners%}
+                    <div class="partner">
+                        <figure id="img">
+                            <img src="{{ itm.image.url }}" alt="photo_error">
+                        </figure>
+                        <a href="{{ itm.ref }}">{{ itm.name }}</a>
+                    <div>
+                {% endfor %}
+            </div>
+        </article>
+        <article id="scene">
+            <img id="gorb" src="media/main_images/gorb.png" alt="image">
+            <img id="nogorb" src="media/main_images/nogorb.png" alt="image">
+            <img id="open" src="media/main_images/doctor_open.png" alt="image">
+            <img id="close" src="media/main_images/doctor_close.png" alt="image">
+            <img id="pill" src="media/main_images/pill.webp" alt="image">
+            <img id="desk" src="media/main_images/desk.png" alt="image">
+            <h1>Белфармация</h1>
+        </article>
+    </section>
+
+    <script src="{% static "js/slider.js" %}"></script>
+    <script src="{% static "js/timer.js" %}"></script>
+{% endblock  %}

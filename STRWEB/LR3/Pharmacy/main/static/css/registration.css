@@ -1,0 +1,37 @@
+#registration_container {
+    width: 500px;
+    margin: auto;
+    padding: auto;
+    padding-top: 100px;
+}
+
+#name label, #password1 label, #password2 label, #surname label, #last_name label, #username label, #email label, #phone label, #image label {
+    display: block;
+    font-size: 20px;
+}
+
+#name input, #password1 input, #password2 input, #surname input, #last_name input, #username input, #email input, #phone input {
+    margin: 10px;
+    margin-left: 0;
+    font-size: 20px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+#enter_button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;   
+    padding: 10px; 
+    padding-left: 40px;
+    padding-right: 40px;
+    display: block;
+    margin: auto;
+    font-weight: bold;
+    border-radius: 30px;
+    background-color: rgb(155, 168, 155);
+    border: 0;
+}
+
+#enter_button:hover {
+    background-color: rgb(178, 196, 178);
+}

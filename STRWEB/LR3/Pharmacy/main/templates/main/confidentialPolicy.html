@@ -1,0 +1,170 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/forPolicy.css" %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+{% endblock  %}
+
+{% block content %}
+    <section id="tp">
+        <article>
+            <p>{{ info }}</p>
+            <p>{{ setup }}</p>
+            <p>{{ punchline }}</p><br>
+        </article>
+        <p id="policy">Обработка персональных данных в РООФР «ФАРМАБЕЛ»
+            РООФР «ФАРМАБЕЛ» в соответствии с требованиями Закона Республики Беларусь от 07.05.2021 № 99-З «О защите персональных данных» является Оператором и осуществляет обработку персональных данных членов РООФР «ФАРМАБЕЛ» и иных субъектов персональных данных.
+            За содействием в реализации своих прав субъект персональных данных может обратиться к лицу, ответственному за осуществление внутреннего контроля за обработкой персональных данных в РООФР «ФАРМАБЕЛ», направив сообщение на электронный адрес operator.farmabel@pharma.by.</p>
+    </section>
+    <a href={% static "politics_site.pdf" %} download>Политика конфиденциальности</a>
+    <article>
+        <table style="border: 1px solid black">
+            <caption>Пример таблицы</caption>
+            <thead>
+                <tr>
+                    <th id="number" style="border: 1px solid black">Уровень навыка</th>
+                    <th attr="withcontainswith" id="dj" style="border: 1px solid black">Django</th>
+                    <th attr="startwiththis" id="html" style="border: 1px solid black">HTML/CSS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th attr="startwiththis" id="n1" style="border: 1px solid black" headers="number">1</th>
+                    <td attr="withcontainswith" style="border: 1px solid black" headers="dj n1">Петр</td>
+                    <td attr="withthisend" style="border: 1px solid black" headers="html n1">Александр</td>
+                </tr>
+                <tr>
+                    <th id="n2" style="border: 1px solid black" headers="number">2</th>
+                    <td style="border: 1px solid black" attr="withthisend" colspan="2" rowspan="2" headers="dj html n2 n3">Виталий</td>
+                </tr>
+                <tr>
+                    <th id="n3" attr="startwiththis" style="border: 1px solid black" headers="number">3</th>
+                </tr>
+                <tr>
+                    <th id="n1" style="border: 1px solid black" headers="number">4</th>
+                    <td style="border: 1px solid black" headers="dj n1"></td>
+                    <td style="border: 1px solid black" headers="html n1">5</td>
+                </tr>
+            </tbody>
+        </table>
+        <p> Стихи уж точно не слова<br>С набором рифм и расстановкой точек,<br>Пускай  их целая глава,<br>Стихи лишь то, что сказано меж строчек.</p>
+        <a href="https://stihi.ru/" target="frame">Загрузить фрейм</a>
+        <iframe name="frame" width="600" height="400">Nothing</iframe>
+        <p><b>Текст </b><em>Текст </em><i>Текст </i><s>Текст </s><strong>Текст </strong><u>Текст </u><small>Текст </small><sub>Текст </sub><sup>Текст </sup><mark>Текст </mark></p>
+        <code>
+            def about(request):
+
+            info = CompanyInfo.objects.first()
+
+            context = {
+                'departments': load_medicines(),
+                'info': info
+                }
+            
+            return render(request, 'main/about.html', context)
+        </code>
+        <br>
+        <abbr title="Cascading Style Sheets">CSS</abbr>
+        <p><dfn title="Определение">Определение</dfn> - объяснение (формулировка), раскрывающее, разъясняющее содержание, смысл чего-н.</p>
+        <time datetime="18:00">6 часов вечера</time>
+        <br>
+        <a href="{% url "main:news" %}#tp" accesskey="q">Ссылка наверх, нажмите q</a>
+        <hr color="red" size="10" width="30%">
+        <dl>
+            <dt>Определение</dt>
+            <dd>
+                - объяснение (формулировка), раскрывающее, разъясняющее содержание, смысл чего-н.
+            </dd>
+        </dl>     
+        <details>
+            <summary>Определение</summary>
+                - объяснение (формулировка), раскрывающее, разъясняющее содержание, смысл чего-н.
+        </details>
+        <form action="http://example.com/app/profile.php" method="post" name="main" novalidate autocomplete="on" target="_blank">
+            <input type="text" name="username" required><span> - Имя</span><br>
+            <input type="email" validate disabled name="email"><span> - Адрес эл. почты</span><br>
+            <input type="number" required validate min="18" max="100" name="email"><span> - Возраст</span><br>
+            <span>Пол:</span><br>
+            <input type="radio" name="sex" value="male"><span>мужской</span><br>
+            <input type="radio" name="sex" value="female"><span>женский</span><br>
+
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Очистить">
+            <select size="1" name="select">
+                <option disabled>Choose:</option>
+                <option value="1">1</option>
+                <optgroup label="2 and 3">
+                    <option selected value="2">2</option>
+                    <option value="3">3</option>
+                </optgroup>
+              </select>
+             
+        </form>
+        <div>
+            <h1>СЕРТИФИКАТ О ПРОВЕРКЕ</h1>
+            <h2>РОСКОМНАДЗОР</h2>
+        
+            <p>Настоящим удостоверяется, что сайт <strong>Pharmacy</strong>, расположенный по адресу <strong>http://127.0.0.1:8000/</strong>, прошел проверку на соответствие требованиям законодательства Российской Федерации о защите персональных данных и информационной безопасности.</p>
+        
+            <p><strong>Дата проверки</strong>: <time datetime="1984-12-7">10.09.2024</time></p>
+            <p><strong>Номер проверки</strong>: 1666</p>
+            <p><strong>Результаты проверки</strong>: Соответствует требованиям законодательства РФ.</p>
+        
+            <h3>Проверенные аспекты:</h3>
+            <ul>
+                <li>Соответствие <a href="https://pravo.by/" target="_blank">Федеральному закону №152-ФЗ «О персональных данных»</a>;</li>
+                <li>Соблюдение требований к хранению и обработке персональных данных;</li>
+                <li>Защита информации от несанкционированного доступа;</li>
+                <li>Выполнение технических и организационных мер по защите данных.</li>
+            </ul>
+        
+            <h3>Заключение:</h3>
+            <p>По итогам проверки, сайт <strong>Pharmacy</strong> соответствует установленным требованиям Роскомнадзора и может продолжать свою деятельность в рамках правового поля Российской Федерации.</p>
+        
+            <p><strong>Подпись проверяющего лица</strong>:</p>
+            <p>Липов Адрей Юрьевич</p>
+            <p>Должность: глава отделки проверки и соответсвия Роскомнадзора</p>
+            <p>Дата: <time datetime="1984-12-7">10.09.2024</time></p>
+        </div>
+        <div id="list_for_test">
+            <ul>
+                <li class="first">Paragraph 1</li>
+                <li>Paragraph 2</li>
+                <ul>
+                    <li>Paragraph 3.1</li>
+                    <li>Paragraph 3.2</li>
+                    <li><p>Paragraph 3.3</p></li>
+                    <li>Paragraph 3.4</li>
+                </ul>
+                <li>Paragraph 4</li>
+                <li>Paragraph 5</li>
+                <ul>
+                    <li>Paragraph 6.1</li>
+                    <li><p>Paragraph 6.2</p></li>
+                    <ul>
+                        <li>Paragraph 6.3.1</li>
+                        <li>Paragraph 6.3.2</li>
+                        <li>Paragraph 6.3.3</li>
+                        <li>Paragraph 6.3.4</li>
+                    </ul>
+                    <li>Paragraph 6.4</li>
+                </ul>
+            </ul>
+        </div>
+        <p>на разных<p>
+        <p>Цитата на английском: <q lang="en">The best dreams happen when you’re awake</q></p>
+        <p>Цитата на французском: <q lang="fr">C'est la vie</q></p>  
+        <p>Цитата на немецком: <q lang="de">Das Leben ist kurz, die Kunst ist lang</q></p>
+        <div id="for_media">
+            <p></p>
+            <p></p>
+        </div>
+        <div id="text_decoration">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius rerum laboriosam, possimus, hic veniam sed corporis error neque ullam saepe aperiam beatae sint quae magnam voluptatibus debitis veritatis laborum, iusto id iste rem unde. Nam aperiam quia repellat explicabo sed ab fugit earum labore ducimus iusto at omnis deleniti laudantium excepturi ea velit ullam, asperiores hic quaerat, commodi consequuntur alias. Commodi praesentium excepturi architecto voluptatibus eveniet autem sunt, fugit voluptas recusandae amet quidem non earum corrupti, sapiente obcaecati nesciunt fuga. Commodi rem quam aliquid, vitae necessitatibus unde cum nam? Facere molestias quasi esse voluptatem officiis temporibus neque sint omnis soluta.</p>
+        </div>
+    </article>
+{% endblock  %}

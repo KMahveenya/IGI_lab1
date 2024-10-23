@@ -1,0 +1,6 @@
+INFO:root:len of new must be 1
+WARNING:django.request:Not Found: /favicon.ico
+INFO:root:len of new must be 1
+WARNING:django.request:Not Found: /path/to/your-image.png
+WARNING:django.request:Not Found: /path/to/your-image.png
+WARNING:django.request:Not Found: /path/to/your-image.png

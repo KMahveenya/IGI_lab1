@@ -1,0 +1,152 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/about.css" %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+{% endblock  %}
+
+{% block content %}
+    <div id="welcomeMessage" class="hidden">Добро пожаловать на наш сайт!</div>
+    <button id="getLocationButton">Получить местоположение</button><br>
+
+    <div>
+        <button id="pause">Pause</button> 
+        <button id="play">Play</button>
+        <button id="cancel">Cancel</button>
+        <button id="faster">Faster</button>
+        <button id="slower">Slower</button>
+    </div>
+    <div id="rect"></div>
+
+    <label>
+        <input type="checkbox" id="toggleStyleOptions"> Показать настройки стиля
+    </label>
+
+    <div id="styleOptionsContainer"></div>
+
+    <input type="date" id="birthDate"/>
+    <button id="ageBtn">Проверить возраст</button>
+
+    <p id="message"></p>
+
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <h3>Добавить клиента</h3>
+    <form id="clientForm">
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName" name="middleName" required><br><br>
+
+        <label for="accountNumber">Номер счета:</label>
+        <input type="text" id="accountNumber" name="accountNumber" required><br><br>
+
+        <label for="depositAmount">Сумма вклада:</label>
+        <input type="number" id="depositAmount" name="depositAmount" required><br><br>
+
+        <button type="button" onclick="BankClient.addClientFromForm()">Добавить клиента</button>
+    </form>
+
+    <p id="inputError"></p>
+
+    <h3>Клиенты банка</h3>
+    <div id="clientsList"></div>
+
+    <h3>Результат</h3>
+    <div id="result"></div><br>
+
+    <h3>Добавить клиента</h3>
+    <form id="clientForm2">
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName2" name="lastName" required><br><br>
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName2" name="firstName" required><br><br>
+
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName2" name="middleName" required><br><br>
+
+        <label for="accountNumber">Номер счета:</label>
+        <input type="text" id="accountNumber2" name="accountNumber" required><br><br>
+
+        <label for="depositAmount">Сумма вклада:</label>
+        <input type="number" id="depositAmount2" name="depositAmount" required><br><br>
+
+        <button type="button" onclick="bankClient.addClientFromForm()">Добавить клиента</button>
+    </form>
+
+    <p id="inputError2"></p>
+
+    <h3>Клиенты банка</h3>
+    <div id="clientsList2"></div>
+
+    <h3>Результат</h3>
+    <div id="result2"></div><br>
+
+    <article>
+        <p>{{ info.info }}</p><br>
+        <p id="props">{{ info.props }}</p><br>
+        <ul>
+            {% for his in history %}
+            <li>{{ his }}</li>
+            {% endfor %}
+        </ul>
+        <div>
+            <img id="logo" src="{{ info.logo.url }}" alt="photo_error">
+        </div>
+
+        <div id="sertificate">
+            <div>
+                <div>
+                    <p>XXX Междунароный форум<br>по информационно-коммуникационным технологиями</p>
+                    <p>Диплом</p>
+                    <p>Награждается</p>
+                    <p>РУП "Белфармация"</p>
+                    <p>3 место</p>
+                    <p>лучший специализированный ресурс</p>
+                    <p>pharmamall.by</p>
+                    <p>председатель жюри конкурса,</p>
+                    <p>председатель Республиканского союза промышленников<br> и предпринимателей,</p>
+                    <p>член организационного комитета ТИБО-2024</p>
+                    <p>А. И. Швец</p>
+                    <p>г. Минск, Беларусь, 8 июня 2024 г.</p>
+                </div>
+            </div>
+        </div>
+
+        <figure>
+            <figcaption>Сертификат</figcaption>
+            <img src="{{ info.certificate.url }}" 
+                sizes="(max-width: 40em) 100vw, 50vw"
+                srcset="/media/main_images/ban2.jpg 800w,
+                        {{ info.certificate.url }} 1000w">
+        </figure>
+
+
+
+        <video width="320" height="240" controls itemscope itemtype="https://schema.org/VideoObject" itemprop="video">
+            <source src="{{ info.video.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <audio itemscope itemtype="https://schema.org/AudioObject" itemprop="audio" controls src="/media/main_audios/audio.mp3"></audio>
+    <article>
+
+    <script src="{% static "js/pageOptions.js" %}"></script>
+    <script src="{% static "js/ageCheck.js" %}"></script>
+    <script src="{% static "js/bank.js" %}"></script>
+    <script src="{% static "js/bank2.js" %}"></script>
+    <script src="{% static "js/APIanimation.js" %}"></script>
+    <script src="{% static "js/graph.js" %}"></script>
+{% endblock  %}

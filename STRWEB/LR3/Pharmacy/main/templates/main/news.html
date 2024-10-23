@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/news.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section id="tp">
+        <h1>Новости</h1>
+        {% for new in news %}
+            <article class="new">
+                {% if new.image %}
+                    <div>
+                        <img src="{{ new.image.url }}" alt="photo_error">
+                    </div>
+                {% endif %}
+                <div class="info">
+                    <a href="/news/{{ new.id }}">{{ new.title }}</a>
+                    <p>{{ new.some_info }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock  %}

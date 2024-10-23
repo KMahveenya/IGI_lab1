@@ -1,0 +1,156 @@
+.shop-item {
+    font-family:garamond;
+    position:relative;
+    border:1px solid rgb(151, 151, 151);
+    display:inline-block;
+    padding:15px;
+    transition:1s all;
+    background-color: rgb(255, 228, 194);
+    border-radius: 15px;
+}
+
+img {
+    border-radius: 15px;
+}
+
+.shop-item-hover {
+    opacity:0;
+    visibility:hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    transition:1s all;
+}
+    
+.shop-item:hover .shop-item-hover {
+    opacity:0.5;
+}
+    
+.shop-item:hover {
+    transform:scale(1.1);
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.container {
+    margin: auto;
+    padding: auto;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /*display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;*/
+    background-color: rgb(255, 255, 255);
+}
+
+.one_med {
+    font-family:garamond;
+    /*position:relative;*/
+    border:1px solid black;
+    display:inline-block;
+    padding:10px;
+    transition:1s all;
+}
+
+.pagination 
+{
+    text-align: center;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    height: 100%;
+}
+
+#discount {
+    position: absolute;
+    display: block;
+    left: 20px;
+    top: 20px;
+    background-color: orange;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    border:1px solid black;
+    border-radius: 20px;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    padding-bottom: 10px;
+    max-width: 250px;
+}
+
+s {
+    color: red;
+}
+
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;   
+    padding: 10px; 
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: bold;
+    border-radius: 30px;
+    background-color: rgb(91, 165, 91);
+    border: 0;
+}
+
+button:hover {
+    background-color: rgb(112, 194, 112);
+    color: rgba(255, 255, 255, 0.89);
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+/* Основной стиль карточки */
+.shop-item {
+    width: 250px;
+    margin: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d; /* Для эффекта 3D */
+}
+
+/* Стиль для изображения и контента */
+.shop-item img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.shop-item article {
+    margin-top: 10px;
+}
+
+/* Стиль скидки */
+#discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/* Плавный переход и базовая анимация */
+.shop-item, .shop-item img {
+    transition: all 0.3s ease;
+    will-change: transform; /* Для улучшения производительности при анимации */
+}

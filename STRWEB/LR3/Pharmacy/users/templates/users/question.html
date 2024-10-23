@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/question.css" %}">
+{% endblock  %}
+
+{% block content %}
+<article class="question">
+    <p>{{ question.question }}</p>
+    <p>{{ question.answer }}</p>
+    <p>{{ question.date|date:"d/m/Y" }}</p>
+</article>
+{% endblock  %}

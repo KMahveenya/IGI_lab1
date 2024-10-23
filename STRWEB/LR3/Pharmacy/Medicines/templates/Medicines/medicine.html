@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/med_self_page.css" %}">
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/filter.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section class="container">
+        {% if med.discount %}
+            <span id="discount">Скидка {{ med.discount }}%</span>
+        {% endif %}
+        <article class="info_img">
+            {% if med.image %}
+                <div class="scale">
+                    <img src="{{ med.image.url }}" alt="photo_error" width="250px">
+                </div>
+            {% endif %}
+            <div class="info">
+                <p id="name" itemscope itemtype="https://schema.org/Product" itemprop="name">{{ med.name }}</p>
+                <p id="quantity">В наличии: {{ med.quantity }}</p>
+                {% if med.discount %}
+                    <p class="price" itemscope itemtype="https://schema.org/Product" itemprop="additionalProperty"><s>{{ med.price }}</s> BYN</p>
+                    <p id="discount_price" itemscope itemtype="https://schema.org/Product" itemprop="additionalProperty">{{ med.sell_price }} BYN</p>
+                    {% if user.is_authenticated %}
+                        <button class="buy">
+                            <a class="buy_text" href="{% url "cart:cart_add" med_id %}">В корзину</a>
+                        </button>
+                    {% endif %}
+                {% else %}
+                    <p class="price" itemscope itemtype="https://schema.org/Product" itemprop="additionalProperty">{{ med.price }} BYN</p>
+                    {% if user.is_authenticated %}
+                        <button class="buy">
+                            <a class="buy_text" href="{% url "cart:cart_add" med_id %}">В корзину</a>
+                        </button>
+                    {% endif %}
+                {% endif %}
+                <p>Точки самовывоза:</p>
+                <p><i>{{ med.pick_up_points }}</i></p>
+            </div>
+        </article>
+        <article class="description_container">
+            <p class="description1">Описание:</p>
+            <p class="description2" itemscope itemtype="https://schema.org/Product" itemprop="description">{{ med.description }}</p>
+        </article>
+        <article class="description_container">
+            <p class="description1">Инструкция:</p>
+            <p class="description2">{{ med.instruction }}</p>
+        </article>
+    </section>
+{% endblock %}

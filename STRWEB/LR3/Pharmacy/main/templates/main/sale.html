@@ -1,0 +1,67 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/vacancy.css" %}">
+    <link rel="stylesheet" href="{% static "css/scroll_animation.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <h1>Продажи</h1>
+        {% for sale in sales %}
+            <article class="vacancy">
+                <p>Товар: {{ sale.name }}</p>
+                <p>Количество продаж: {{ sale.quantity }}</p>
+                <p>Доход: {{ sale.income }} BYN</p>
+            </article>
+        {% endfor %}
+    </section>
+
+    <div id="bottle1" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle2" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle3" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle4" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle5" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle6" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle7" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+
+    <div id="bottle8" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle9" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle10" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle11" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle12" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle13" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+    <div id="bottle14" class="bottle-container">
+        <div class="bottle"></div>
+    </div>
+
+    <script src="{% static "js/scroll_animation.js" %}"></script>
+{% endblock  %}

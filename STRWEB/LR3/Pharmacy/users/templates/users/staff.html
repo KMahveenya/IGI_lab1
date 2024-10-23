@@ -1,0 +1,117 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/staff.css" %}">
+    <link rel="stylesheet" href="{% static "css/staff_table.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <img id="preloader" src="/media/main_images/pill.webp" alt="image">
+    <section>
+        <h1>Наш персонал</h1>
+        
+        <button id="addEmployeeBtn">Добавить сотрудника</button>
+
+        <div class="form-container" id="employeeFormContainer">
+            <h3>Добавить сотрудника</h3>
+            <form id="employeeForm">
+                <label for="last_name">Фамилия:</label>
+                <input type="text" id="last_name" name="last_name" required><br><br>
+
+                <label for="first_name">Имя:</label>
+                <input type="text" id="first_name" name="first_name" required><br><br>
+
+                <label for="surname">Отчество:</label>
+                <input type="text" id="surname" name="surname" required><br><br>
+                
+                <label for="photo">Фото:</label>
+                <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
+                <label for="jobDescription">Описание работы:</label>
+                <textarea id="jobDescription" name="jobDescription" required></textarea><br><br>
+
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url" required><br><br>
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <button disabled id="submitBtn" type="submit">Добавить</button>
+            </form>
+
+            <p id="urlMessage" class="error-message">Неверный формат URL</p>
+            <p id="phoneMessage" class="error-message">Неверный формат номера телефона</p>
+            <p id="successMessage" class="success-message">Все данные введены корректно!</p>
+        </div>
+
+        <div id="searcher">
+            <input type="text" id="search-input" placeholder="Введите текст для поиска">
+            <button id="search-button">Найти</button>
+        </div>
+
+        <table id="employee-list">
+            <thead>
+                <tr>
+                    <th data-column="image" data-order="desc">Фото</th>
+                    <th data-column="last_name" data-order="desc">Фамилия</th>
+                    <th data-column="first_name" data-order="desc">Имя</th>
+                    <th data-column="surname" data-order="desc">Отчество</th>
+                    <th data-column="position" data-order="desc">Должность</th>
+                    <th data-column="date_joined" data-order="desc">Начал работь</th>
+                    <th data-column="email" data-order="desc">Почта</th>
+                    <th data-column="phone" data-order="desc">Телефон</th>
+                    <th data-column="checkbox" data-order="desc">Премия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <button id="bonusButton">Премировать</button>
+
+        <div class="pagination">
+            <button id="prevBtn">Предыдущая</button>
+            <span id="pageInfo">Страница 1</span>
+            <button id="nextBtn">Следующая</button>
+        </div>
+
+        <div id="employee-details" style="margin-top: 20px; font-weight: bold;"></div>
+
+        <div id="bonusInfo"></div>
+        <!--{% for person in staff %}
+            <article class="person">
+                
+                {% if person.image %}
+                    <div>
+                        <img src="{{ person.image.url }}" alt="photo_error">
+                    </div>
+                {% else %}
+                    <div id="circle-img">
+                        <img src="{% static "images/noAvatar.jpg" %}" alt="photo_error">
+                    </div>
+                {% endif %}
+                <div class="info">
+                    <p>ФИО: {{ person.last_name }} {{ person.first_name }} {{ person.surname }}</p>
+                    <p>Должность: {{ person.position }}</p>
+                    <p>Работает с: {{ person.date_joined|date:"d/m/Y" }}</p>
+                    <p>Почта: {{ person.email }}</p>
+                    <p>Номер телефона: {{ person.phone }}</p>
+                </div>
+            </article>
+        {% endfor %}-->
+    </section>
+    <script src="https://github.com/jonnyreeves/js-logger/blob/master/src/logger.js"></script>
+
+    <script id="employees-data" type="application/json">{{ staff|json_script:"employeesData" }}</script>
+
+    <script src="{% static "js/staff_pagination_searcher.js" %}"></script>
+    <script src="{% static "js/staff_sort.js" %}"></script>
+    <script src="{% static "js/staff_search.js" %}"></script>
+    
+{% endblock  %}

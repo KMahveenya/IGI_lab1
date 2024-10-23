@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Лабораторная работа 1">
+    <meta name="author" content="Mahveenya Konstantin">
+    <meta name="keywords" content="meta, html_lab">
+    <meta http-equiv="refresh" content="6000">
+    <link rel="icon" href="{% static 'favicon.png' %}" />
+    {% block links %}
+    {% endblock  %}
+    <title>Django</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="topmenu">
+                <li><a href="{% url "main:index" %}">Главная</a></li>
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url "users:login" %}">Войти</a></li>
+                    {% else %}
+                        <li><a href="{% url "users:profile" %}" class="active">Профиль<span class="fa fa-angle-down"></span></a>
+                            <ul class="submenu">
+                                {% if user.is_superuser %}
+                                    <li><a href="/admin">Админ</a></li>
+                                {% endif %}
+                                {% if user.is_staff and not user.is_superuser %}
+                                    <li><a href="{% url "users:providers" %}">Мои поставщики</a></li>
+                                {% endif %}
+                                <li><a href="{% url "users:logout" %}">Выйти</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                    <li><a href="/medicines" class="active">Товары<span class="fa fa-angle-down"></span></a>
+                        <ul class="submenu">
+                        {% for department in departments %}
+                            <li><a href="/medicines/{{ department.department.id }}">{{ department.department.name }}<span class="fa fa-angle-down"></span></a>
+                                <ul class="submenu">
+                                    {% for category in department.categories %}
+                                        <li><a href="/medicines/{{ department.department.id }}/{{ category.id }}/">{{ category.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                <li><a href="{% url "main:promotions" %}" class="active">Акции<span class="fa fa-angle-down"></span></a>
+                    <ul class="submenu">
+                        <li><a href="{% url "main:promotions_archive" %}">Архив</a></li>
+                        <li><a href="{% url "main:promotions_current" %}">Текущие</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url "main:about" %}">О компании</a></li>
+                <li><a href="{% url "main:policy" %}">Политика конф.</a></li>
+                <li><a href="{% url "main:news" %}">Новости</a></li>
+                <li><a href="{% url "users:staff" %}">Наш персонал</a></li>
+                <li><a href="{% url "main:vacancies" %}">Вакансии</a></li>
+                <li><a href="{% url "users:questions" %}">Вопрос-ответ</a></li>
+                <li><a href="{% url "users:reviews" %}">Отзывы</a></li>
+                <li><a href="{% url "main:statistic" %}">Статистика</a></li>
+                <li><a href="{% url "medicines:sales" %}">Продажи</a></li>
+                <li><a href="{% url "cart:cart" %}">Корзина</a></li>
+            </ul>
+        </nav>
+        <!--<ul class="verticalmenu">
+            
+        </ul>-->
+    </header>
+        <main id="page">
+            {% block content %}
+            {% endblock  %}
+        </main>
+    <footer class="footer">
+        <p>Author: Konstantin Mahveenya</p>
+    </footer>
+</body>
+</html>

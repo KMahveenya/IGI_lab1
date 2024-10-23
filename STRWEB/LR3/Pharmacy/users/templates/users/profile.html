@@ -1,0 +1,48 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/profile.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <section>
+        <p>Таймзона - {{ tzinfo }}</p>
+        <p>Время - {{ cur_time }}</p>
+        <p>UTC - {{ utc_time }}</p>
+        <p id="calendar">{{ calendar|safe }}</p>
+        <article class="profile">
+            {% if user.image %}
+                <div>
+                    <img src="{{ user.image.url }}" alt="photo_error">
+                </div>
+                {% else %}
+                <div id="circle-img">
+                    <img src="{% static "images/noAvatar.jpg" %}" alt="photo_error">
+                </div>
+            {% endif %}
+            <div class="info">
+                <p>ФИО: {{ user.last_name }} {{ user.first_name }} {{ user.surname }}</p>
+                <p>Ник: {{ user.username }}</p>
+                <p>Дата регистрации: {{ user.date_joined|date:"d/m/Y" }} </p>
+            </div>
+        </article>
+    </section>
+    <article class="info">
+        <p id="comment">Оставьте свой комментарий:</p>
+        <form method="post">
+            {% csrf_token %}
+
+            <div id="grade">
+                <label for="id_grade">Оценка</label>
+                <input type="number" min="1" max="5" name="grade" id="id_grade"></input>
+            </div>
+            <div id="review">
+                <label for="id_review">Текст отзыва</label>
+                <textarea type="text" name="review" id="id_review" value="{% if form.review.value %}{{ form.review.value }}{% endif %}"></textarea>
+            </div>
+            <button id="enter_button" type="submit">Отправить</button>
+        </form>
+    </article>
+{% endblock  %}

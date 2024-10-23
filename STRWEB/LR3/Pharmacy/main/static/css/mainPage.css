@@ -1,0 +1,287 @@
+.partner figure {
+    display: inline-block;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    box-shadow: 10px 5px 5px rgb(184, 183, 183);
+    border: 1px black solid;
+}
+
+.partner img {
+    width:100%;
+    height:100%;
+    object-fit: contain;
+}
+
+.partner a {
+    display: block;
+    margin-left: 40px;
+    width: 300px;
+    text-align: center;
+}
+
+#name {
+    font-family: "Sofadi One", Courier, sans-serif;
+    font-kerning: normal;
+    text-align: center;
+    font-size: 40px;
+}
+
+.new {
+    width: 900px;
+    position: relative;
+    left: 100px;
+    top: 50px;
+    border: 1px solid black;
+    background-color: beige;
+    box-shadow: 10px 10px 5px rgb(202, 200, 200);
+}
+
+#scene {
+    position: relative;
+    height: 400px;
+}
+
+#scene img, #scene h1 {
+    position: absolute;
+}
+
+#desk {
+    left: -50px;
+    bottom: -40px;
+}
+
+#nogorb, #pill, #gorb, #open, #close, #desk, #scene h1 {
+    opacity: 0;
+}
+
+#scene h1 {
+    animation-name: pharmname;
+    animation-delay: 10s;
+    animation-duration:3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pharmname {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+        left: 50px;
+        bottom: 50px;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 1;
+        left: 150px;
+        bottom: 150px;
+    }
+}
+
+#desk {
+    animation-name: desk;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes desk {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#gorb {
+    animation-name: gorb;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes gorb {
+    0% {
+        opacity: 1;
+        left: 200px;
+    }
+    30% {
+        left: 30px;
+        opacity: 1;
+    }
+    70% {
+        left: 30px;
+        opacity: 1;
+    }
+    71% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#nogorb {
+    animation-name: nogorb;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes nogorb {
+    0% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    71% {
+        opacity: 1;
+        left: 30px;
+    }
+    100% {
+        left: 200px;
+        opacity: 1;
+    }
+}
+
+#pill {
+    width: 60px;
+    animation-name: pill;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pill {
+    0% {
+        opacity: 0;
+        bottom: 200px;
+    }
+    50% {
+        left: -100px;
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+        left: 35px;
+    }
+    70% {
+        left: 170px;
+        opacity: 1;
+    }
+    71% {
+        opacity: 0;
+        bottom: 200px;
+    }
+}
+
+#open {
+    animation-name: opendoc;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes opendoc {
+    0% {
+        left: -100px;
+        opacity: 1;
+    }
+    24% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    31% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 0;
+    }
+    56% {
+        opacity: 1;
+    }
+    79% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 0;
+    }
+    86% {
+        opacity: 1;
+    }
+    100% {
+        left: -100px;
+        opacity: 1;
+    }
+}
+
+#close {
+    animation-name: closedoc;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes closedoc {
+    0% {
+        left: -100px;
+        opacity: 0;
+    }
+    24% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    31% {
+        opacity: 0;
+    }
+    49% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    55% {
+        opacity: 1;
+    }
+    56% {
+        opacity: 0;
+    }
+    79% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 1;
+    }
+    86% {
+        opacity: 0;
+    }
+    100% {
+        left: -100px;
+        opacity: 0;
+    }
+}

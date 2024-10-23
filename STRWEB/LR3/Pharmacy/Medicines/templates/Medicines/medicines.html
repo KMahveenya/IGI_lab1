@@ -1,0 +1,117 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/medicine.css" %}">
+    <link rel="stylesheet" href="{% static "css/filter.css" %}">
+    <link rel="stylesheet" href="{% static "css/search.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <div id="filter">
+        <form action="{% if request.GET.q %}{% url "medicines:search" %}{% else %}{% url "medicines:deps" %}{% endif %}" method="get">
+            <input type="checkbox" id="discount-input" name="on_sale", value="on" {% if request.GET.on_sale == 'on' %}checked{% endif %}>
+            {% if request.GET.q %}
+                <input type="hidden" name="q" value="{{request.GET.q}}"></input>
+            {% endif %}
+            <label for="discount-input">Только товары со скидкой</label>
+            <p>Сортировка:</p>
+            <div>
+                <input id="radio1" type="radio" name="order_by" value="default" {% if request.GET.order_by == 'default' or not request.GET.order_by %}checked{% endif %}>
+                <label for="radio1">По умолчанию</label>
+            </div>
+            <div>
+                <input id="radio2" type="radio" name="order_by" value="price" {% if request.GET.order_by == 'price' %}checked{% endif %}>
+                <label for="radio2">Цена по возрастанию</label>
+            </div>
+            <div>
+                <input id="radio3" type="radio" name="order_by" value="-price" {% if request.GET.order_by == '-price' %}checked{% endif %}>
+                <label for="radio3">Цена по убыванию</label>
+            </div>
+            <div id="filter_button">
+                <button type="submit">Применить</button>
+            </div>
+        </form>
+    </div>
+    <div id="search_container">
+        <form action="{% url "medicines:search" %}" role="search" method="get">
+            <input type="search" placeholder="Search" name="q" aria-label="Search" value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}">
+            <button type="submit">Найти</button>
+        </form>
+    </div>
+    <div class="container">
+        
+        {% for med in meds %}
+            <figure class="shop-item">
+                <section class="container2">
+                    {% if med.med.image %}
+                        <img src="{{ med.med.image.url }}" alt="photo_error" width="250px">
+                        {% if med.med.discount %}
+                            <span id="discount">Скидка {{ med.med.discount }}%</span>
+                        {% endif %}
+                    {% endif %}
+                    <article>
+                        <div class="shop-item-hover"></div>
+                        <p><b>{{ med.med.name }}</b></p>
+                        {% if med.med.discount %}
+                            <p>Цена: <s>{{ med.med.price }}</s> BYN / {{ med.med.sell_price }} BYN</p>
+                        {% else %}
+                            <p>Цена: {{ med.med.price }} BYN</p>
+                        {% endif %}
+                    </article>
+                    <article>
+                        <button>
+                            <a class="button" href="/medicines/{{ med.dep_id }}/{{ med.cat_id }}/{{ med.med.id }}/">Подробнее</a>
+                        </button>
+                    </article>
+                </section>
+            </figure>
+        {% endfor %}
+    </div>
+
+    <!--<div class="container">
+        {% for med in meds %}
+            <figure class="shop-item">
+                <section class="container2">
+                    {% if med.med.image %}
+                        <img src="{{ med.med.image.url }}" alt="photo_error" width="250px">
+                        {% if med.med.discount %}
+                            <span id="discount">Скидка {{ med.med.discount }}%</span>
+                        {% endif %}
+                    {% endif %}
+                    <article>
+                        <div class="shop-item-hover"></div>
+                        <p><b>{{ med.med.name }}</b></p>
+                        {% if med.med.discount %}
+                            <p>Цена: <s>{{ med.med.price }}</s> BYN / {{ med.med.sell_price }} BYN</p>
+                        {% else %}
+                            <p>Цена: {{ med.med.price }} BYN</p>
+                        {% endif %}
+                    </article>
+                    <article>
+                        <button>
+                            <a class="button" href="/medicines/{{ med.dep_id }}/{{ med.cat_id }}/{{ med.med.id }}/">Подробнее</a>
+                        </button>
+                    </article>
+                </section>
+            </figure>
+        {% endfor %}
+    </div>
+    {% for med in meds %}
+        <p>{{ med.med.price }}</p>
+    {% endfor %}-->
+    
+    <div class="container"></div>
+
+    <div class="pagination">
+        <button id="prevBtn">Предыдущая</button>
+        <span id="pageInfo">Страница 1</span>
+        <button id="nextBtn">Следующая</button>
+    </div>
+
+    <script id="medicine-data" type="application/json">{{ meds|json_script:"medicineData" }}</script>
+
+    <script src="{% static "js/medicine_pagination.js" %}"></script>
+    <script src="{% static "js/medicine_animation.js" %}"></script>
+{% endblock %}
